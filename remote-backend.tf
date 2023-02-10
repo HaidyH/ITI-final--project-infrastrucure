@@ -2,11 +2,11 @@
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "terraform-up-and-running-state-haidy"
 
-  lifecycle {
+   lifecycle {
     prevent_destroy = true
 
-  }
-}
+  } 
+} 
 
 resource "aws_s3_bucket_versioning" "enabled" {
   bucket = aws_s3_bucket.terraform_state.id
@@ -23,7 +23,7 @@ resource "aws_dynamodb_table" "terraform_locks" {
     name = "LockID"
     type = "S"
   }
-}
+} 
 
 
 terraform {

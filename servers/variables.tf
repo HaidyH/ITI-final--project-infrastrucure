@@ -7,10 +7,6 @@ variable "ec2-type" {
 }
 
 
-variable "user_data" {
-  type = string
-}
-
 variable "subnet-id" {
   type = string
 }

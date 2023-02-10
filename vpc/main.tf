@@ -1,3 +1,4 @@
+
 resource "aws_vpc" "vpc-dev" {
     cidr_block = var.vpc-cidr
       tags = {
@@ -6,12 +7,12 @@ resource "aws_vpc" "vpc-dev" {
  
 }
 
-resource "aws_subnet" "public-subnet-1" {
+resource "aws_subnet" "subnet" {
   vpc_id  = aws_vpc.vpc-dev.id
   count = length(var.subnet-cidr)
   cidr_block = var.subnet-cidr[count.index]
   tags = {
-    Name = var.subnet-name[0]
+    Name = var.subnet-name[count.index]
   }
 }
 
