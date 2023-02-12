@@ -1,4 +1,4 @@
-
+//create vpc
 resource "aws_vpc" "vpc-dev" {
     cidr_block = var.vpc-cidr
       tags = {
@@ -6,37 +6,69 @@ resource "aws_vpc" "vpc-dev" {
   }
  
 }
-
-resource "aws_subnet" "subnet" {
+//public subnet 
+resource "aws_subnet" "public-subnet" {
   vpc_id  = aws_vpc.vpc-dev.id
-  count = length(var.subnet-cidr)
-  cidr_block = var.subnet-cidr[count.index]
+  count = length(var.public-subnet-cidr)
+  availability_zone = var.AZ[count.index]
+  map_public_ip_on_launch = true 
+  cidr_block = var.public-subnet-cidr[count.index]
   tags = {
-    Name = var.subnet-name[count.index]
+    Name = "public-subnet-${var.subnet-num[count.index]}"
   }
 }
+
+//private subnet 
+resource "aws_subnet" "private-subnet" {
+  vpc_id  = aws_vpc.vpc-dev.id
+  count = length(var.private-subnet-cidr)
+  availability_zone = var.AZ[count.index]
+  map_public_ip_on_launch = false
+  cidr_block = var.private-subnet-cidr[count.index]
+  tags = {
+    Name = "private-subnet-${var.subnet-num[count.index]}"
+  }
+}
+
+
+
+
+resource "aws_route_table" "public-rt" {
+  vpc_id  = aws_vpc.vpc-dev.id
+  route {
+    cidr_block = var.public-traffic
+    gateway_id = var.gw-id
+  }
+}
+
+resource "aws_route_table_association" "public" {
+    count = length(aws_subnet.public-subnet)
+    subnet_id = aws_subnet.public-subnet[count.index].id
+    route_table_id = aws_route_table.public-rt.id
+  
+}
+
+
+resource "aws_route_table" "private-rt" {
+    
+    vpc_id  = aws_vpc.vpc-dev.id
+    route {
+        cidr_block = var.public-traffic
+        nat_gateway_id = var.nat-id
+    }
+  
+}
+
+
+resource "aws_route_table_association" "private" {
+    count = length(aws_subnet.private-subnet)
+    subnet_id = aws_subnet.private-subnet[count.index].id 
+    route_table_id = aws_route_table.private-rt.id
+  
+}
+
 
 /* 
- //internet gateway 
-resource "aws_internet_gateway" "gw" {
-    vpc_id = aws_vpc.vpc-dev.id
-    tags = {
-    Name = "haidy-IGW"
-  }
-}
-
-//nat gateway
-
-
-resource "aws_nat_gateway" "nat" {
-  connectivity_type = "private"
-  subnet_id = aws_subnet.public-subnet-1.id
-
-  tags = {
-    Name = "Haidy NAT"
-  }
-}
-
 
 resource "aws_route_table" "Route-table" {
     vpc_id = aws_vpc.vpc-dev.id
@@ -78,4 +110,5 @@ resource "aws_route_table" "Route-table-private" {
 resource "aws_route_table_association" "private_rt_asso" {
   subnet_id = aws_subnet.var.subnet-name[1].id
   route_table_id = aws_route_table.Route-table-private.id
-} */
+}  
+ */
