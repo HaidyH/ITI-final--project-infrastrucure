@@ -32,7 +32,7 @@ resource "aws_subnet" "private-subnet" {
 
 
 
-
+//public route table 
 resource "aws_route_table" "public-rt" {
   vpc_id  = aws_vpc.vpc-dev.id
   route {
@@ -41,6 +41,7 @@ resource "aws_route_table" "public-rt" {
   }
 }
 
+//connect public route table and public subnet 
 resource "aws_route_table_association" "public" {
     count = length(aws_subnet.public-subnet)
     subnet_id = aws_subnet.public-subnet[count.index].id
@@ -48,7 +49,7 @@ resource "aws_route_table_association" "public" {
   
 }
 
-
+//private route table 
 resource "aws_route_table" "private-rt" {
     
     vpc_id  = aws_vpc.vpc-dev.id
@@ -59,7 +60,7 @@ resource "aws_route_table" "private-rt" {
   
 }
 
-
+//connect private route table and public subnet 
 resource "aws_route_table_association" "private" {
     count = length(aws_subnet.private-subnet)
     subnet_id = aws_subnet.private-subnet[count.index].id 

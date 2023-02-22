@@ -1,12 +1,10 @@
 #!/bin/bash
- sudo apt update -y
- sudo apt install nginx -y 
- echo -e 'server { 
-    \n listen 80 default_server;
-    \n  listen [::]:80 default_server;
-    \n  server_name _; \n  location / { 
-    \n  proxy_pass http://${var.private-LB};
-    \n  } \n}' > default
- sudo mv default /etc/nginx/sites-enabled/default
- sudo systemctl restart nginx
- sudo apt install curl -y
+sudo apt update -y
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install unzip
+unzip awscliv2.zip
+sudo ./aws/install
+aws eks --region "us-east-1" update-kubeconfig --name Haidy-cluster
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
