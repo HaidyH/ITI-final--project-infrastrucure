@@ -6,17 +6,41 @@ vpc
 2 private subnets
 2 public subnets
 1 ec2 in public subnets (Bastion host)
-1 cluster contain 1 node type:t3.medium
+1 eks in private subnet the cluster contain 1 node type:t3.medium
 nat gateway
 internet gateway
 2 routes tables
+remote backend using s3 and dynamoDB
 ```
+# Screenshots
 
+![vpc](https://user-images.githubusercontent.com/83189705/221288702-20a788e4-2dd1-4b9b-8dd8-3b20b0d1524f.png)
+![subnets](https://user-images.githubusercontent.com/83189705/221288724-b4913caf-b413-494d-98a1-ca11881dd84c.png)
+![servers](https://user-images.githubusercontent.com/83189705/221288760-e29cb4a4-738b-48e7-aae5-0cdbdb0113ae.png)
+![elastic-IP](https://user-images.githubusercontent.com/83189705/221288784-f589f194-cbc8-4170-9e00-b564d90d3f1a.png)
+![internet-gateway](https://user-images.githubusercontent.com/83189705/221288793-641bd11f-77ca-4e14-b93d-8c433eca03d7.png)
+![Nat-gateway2](https://user-images.githubusercontent.com/83189705/221288825-bf49d13b-25ca-4629-b03d-ed13d87d0694.png)
+![private-route-table](https://user-images.githubusercontent.com/83189705/221288837-19146a4c-2518-478d-9643-fd3839b7ffe7.png)
+
+![route-tables](https://user-images.githubusercontent.com/83189705/2212888![Screenshot from 2023-02-23 20-02-46](https://user-images.githubusercontent.com/83189705/221288871-3f4a13da-4061-42d0-94a0-cba7ebf54415.png)
+45-650e09e3-6a04-4f09-ae77-0587f8d242ae.png)
+![eks](https://user-images.githubusercontent.com/83189705/221288903-9759cee4-b1ee-42f8-9cc1-f8a0ec834c79.png)
+
+#clone this repo
+```bash 
+https://github.com/HaidyH/ITI-final--project-infrastrucure
+```
 
 # Final Project
 Deploy web application on eks using ci-cd Jenkins pipeline
 ![2](https://user-images.githubusercontent.com/83189705/221271227-0345cc92-3323-4c30-8a05-24dea7b7293d.png)
 #run terraform to create eks cluster
+
+
+before you run terraform init make sure you comment s3 in remote repo as follows :
+![Screenshot from 2023-02-24 22-46-25](https://user-images.githubusercontent.com/83189705/221289652-d805e09e-2a01-4a4b-a90e-502fc99bfecd.png)
+
+then uncomment s3 in remote repo and apply the following commands:-
 
 ```bash
 terraform init
