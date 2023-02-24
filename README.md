@@ -61,6 +61,9 @@ terraform apply
 ```
 #access public ec2 (Bastion host) from your local machine
 ssh on ec2 Bastion host to access cluster in private subnet 
+```bash
+ssh -i "terraformkey.pem" ubuntu@3.85.63.95
+```
 
 
 # Apply following commands to install kubectl and accesss eks cluster
