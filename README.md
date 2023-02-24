@@ -26,6 +26,9 @@ remote backend using s3 and dynamoDB
 ![Screenshot from 2023-02-23 20-02-46](https://user-images.githubusercontent.com/83189705/221288871-3f4a13da-4061-42d0-94a0-cba7ebf54415.png)
 
 ![eks](https://user-images.githubusercontent.com/83189705/221288903-9759cee4-b1ee-42f8-9cc1-f8a0ec834c79.png)
+![Screenshot from 2023-02-25 00-24-02](https://user-images.githubusercontent.com/83189705/221320869-15057a1c-bcab-402f-9ec9-9c27df4ccd21.png)
+
+
 
 
 # Final Project
@@ -93,7 +96,7 @@ copy the following files into your cluster
 ![Screenshot from 2023-02-24 21-41-38](https://user-images.githubusercontent.com/83189705/221284773-4b5b9adb-a75f-4fb2-a315-d0bb51c4213a.png)
 ```bash
 then run the following commands
-kubectl create namespace devops-tools
+kubectl create namespace devops-tool
 kubectl apply -f serviceAccount.yaml
 kubectl apply -f service.yaml
 kubectl apply -f deployment.yaml
@@ -105,6 +108,17 @@ kubectl apply -f deployment.yaml
 Ex: http://a940b839175494fc488b16aff4bf94bb-1363825606.us-east-1.elb.amazonaws.com:8080/
 ```
 Get the password and create your 1st user as follows 
+
+```bash
+kubectl exec -it pod/jenkins-7c59d5fbc8-tfgvv  cat /var/jenkins_home/secrets/initialAdminPassword -n devops-tool
+```
+
+
+![Screenshot from 2023-02-24 23-41-05](https://user-images.githubusercontent.com/83189705/221298811-9c162eff-b324-4266-ad3c-19a0f218e987.png)
+
+![Screenshot from 2023-02-24 23-35-39](https://user-images.githubusercontent.com/83189705/221298938-db1ac901-0e3b-483c-9b01-5fc046d376de.png)
+
+
 
 ![Screenshot from 2023-02-23 20-34-20](https://user-images.githubusercontent.com/83189705/221280810-0162faf7-8780-42a7-a2f6-34cad609bb47.png)
 # After createing your 1st user now you can create your 1st job. 
@@ -119,5 +133,18 @@ But 1st we need to add some credentials for docker and git as follows
 https://github.com/HaidyH/ITI-final--project-app
 ```
 ![Screenshot from 2023-02-24 21-52-44](https://user-images.githubusercontent.com/83189705/221282455-842b832f-0706-4273-a915-a5807b873509.png)
+
+![image](https://user-images.githubusercontent.com/83189705/221320679-65c47176-0469-4ded-9e0d-17b7935f1447.png)
+# Finally
+
+![Screenshot from 2023-02-25 01-14-32](https://user-images.githubusercontent.com/83189705/221320706-321c458b-c63f-485a-8ab1-d5bb9256a9f9.png)
+
+# You can access your web page from external IP
+
+
+![Screenshot from 2023-02-25 01-13-22](https://user-images.githubusercontent.com/83189705/221320818-f1218bd0-2e8b-4c3f-9a4c-d2be4bdf5b32.png)
+
+
+
 
 
