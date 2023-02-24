@@ -27,18 +27,30 @@ remote backend using s3 and dynamoDB
 
 ![eks](https://user-images.githubusercontent.com/83189705/221288903-9759cee4-b1ee-42f8-9cc1-f8a0ec834c79.png)
 
-#clone this repo
-```bash 
-https://github.com/HaidyH/ITI-final--project-infrastrucure
-```
 
 # Final Project
 Deploy web application on eks using ci-cd Jenkins pipeline
 ![2](https://user-images.githubusercontent.com/83189705/221271227-0345cc92-3323-4c30-8a05-24dea7b7293d.png)
-#run terraform to create eks cluster
 
 
-before you run terraform init make sure you comment s3 in remote repo as follows :
+## Tools:
+
+- AWS (Cloud Provider)
+- Terraform (IaC)
+- Docker (Containerization Application)
+- kubernates
+- Jenkins (CI-CD)
+
+## How to Use:
+
+
+# clone this repo
+```bash 
+https://github.com/HaidyH/ITI-final--project-infrastrucure
+```
+# Run terraform to create eks cluster
+
+Before you run terraform init make sure you comment s3 in remote repo as follows :
 ![Screenshot from 2023-02-24 22-46-25](https://user-images.githubusercontent.com/83189705/221289652-d805e09e-2a01-4a4b-a90e-502fc99bfecd.png)
 
 then uncomment s3 in remote repo and apply the following commands:-
@@ -51,7 +63,7 @@ terraform apply
 ssh on ec2 Bastion host to access cluster in private subnet 
 
 
-# apply following commands to install kubectl and accesss eks cluster
+# Apply following commands to install kubectl and accesss eks cluster
 
  ```bash
  
@@ -73,7 +85,7 @@ choose the region us-east-1
 ```
 
 
-# Installing Jenkins on eks
+# Installing Jenkins on eks.
 copy the following files into your cluster 
 ![Screenshot from 2023-02-24 21-41-38](https://user-images.githubusercontent.com/83189705/221284773-4b5b9adb-a75f-4fb2-a315-d0bb51c4213a.png)
 ```bash
@@ -85,16 +97,16 @@ kubectl apply -f deployment.yaml
 ```
 ![Screenshot from 2023-02-23 19-56-59](https://user-images.githubusercontent.com/83189705/221279591-2592dd4f-6951-4788-9225-f801055c0252.png)
 
-# Now you can access jenkins throw the externalIP on port 8080
+# Now you can access jenkins throw the externalIP on port 8080.
 ```bash
-ex: http://a940b839175494fc488b16aff4bf94bb-1363825606.us-east-1.elb.amazonaws.com:8080/
+Ex: http://a940b839175494fc488b16aff4bf94bb-1363825606.us-east-1.elb.amazonaws.com:8080/
 ```
-get the password and create your 1st user as follows 
+Get the password and create your 1st user as follows 
 
 ![Screenshot from 2023-02-23 20-34-20](https://user-images.githubusercontent.com/83189705/221280810-0162faf7-8780-42a7-a2f6-34cad609bb47.png)
-# after createing your 1st user now you can create your 1st job 
+# After createing your 1st user now you can create your 1st job. 
 
-but 1st we need to add some credentials for docker and git as follows
+But 1st we need to add some credentials for docker and git as follows
 ![jenkins-credintials](https://user-images.githubusercontent.com/83189705/221281969-d93e491d-cefc-43b9-84ef-41f7033eccac.png)
 
 # Now click on create a job  and choose pipline 
