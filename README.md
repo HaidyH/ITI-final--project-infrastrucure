@@ -22,8 +22,9 @@ remote backend using s3 and dynamoDB
 ![Nat-gateway2](https://user-images.githubusercontent.com/83189705/221288825-bf49d13b-25ca-4629-b03d-ed13d87d0694.png)
 ![private-route-table](https://user-images.githubusercontent.com/83189705/221288837-19146a4c-2518-478d-9643-fd3839b7ffe7.png)
 
-![route-tables](https://user-images.githubusercontent.com/83189705/2212888![Screenshot from 2023-02-23 20-02-46](https://user-images.githubusercontent.com/83189705/221288871-3f4a13da-4061-42d0-94a0-cba7ebf54415.png)
-45-650e09e3-6a04-4f09-ae77-0587f8d242ae.png)
+![route-tables](https://user-images.githubusercontent.com/83189705/221288845-650e09e3-6a04-4f09-ae77-0587f8d242ae.png)
+![Screenshot from 2023-02-23 20-02-46](https://user-images.githubusercontent.com/83189705/221288871-3f4a13da-4061-42d0-94a0-cba7ebf54415.png)
+
 ![eks](https://user-images.githubusercontent.com/83189705/221288903-9759cee4-b1ee-42f8-9cc1-f8a0ec834c79.png)
 
 #clone this repo
