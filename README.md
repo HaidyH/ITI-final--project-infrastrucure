@@ -139,7 +139,12 @@ https://github.com/HaidyH/ITI-final--project-app
 
 ![Screenshot from 2023-02-25 01-14-32](https://user-images.githubusercontent.com/83189705/221320706-321c458b-c63f-485a-8ab1-d5bb9256a9f9.png)
 
-# You can access your web page from external IP
+# You can access the web page from external IP bellow 
+
+```bash
+http://aaed641a1bce54f47939723a33f7aecb-1463804545.us-east-1.elb.amazonaws.com/
+```
+
 
 
 ![Screenshot from 2023-02-25 01-13-22](https://user-images.githubusercontent.com/83189705/221320818-f1218bd0-2e8b-4c3f-9a4c-d2be4bdf5b32.png)
