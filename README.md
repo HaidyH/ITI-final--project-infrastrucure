@@ -14,18 +14,26 @@ remote backend using s3 and dynamoDB
 ```
 # Screenshots
 
+# vpc
 ![vpc](https://user-images.githubusercontent.com/83189705/221288702-20a788e4-2dd1-4b9b-8dd8-3b20b0d1524f.png)
+# subnets
 ![subnets](https://user-images.githubusercontent.com/83189705/221288724-b4913caf-b413-494d-98a1-ca11881dd84c.png)
+# ec2
 ![servers](https://user-images.githubusercontent.com/83189705/221288760-e29cb4a4-738b-48e7-aae5-0cdbdb0113ae.png)
+# elastic-IP
 ![elastic-IP](https://user-images.githubusercontent.com/83189705/221288784-f589f194-cbc8-4170-9e00-b564d90d3f1a.png)
+# internet-gateway
 ![internet-gateway](https://user-images.githubusercontent.com/83189705/221288793-641bd11f-77ca-4e14-b93d-8c433eca03d7.png)
+# Nat-gateway
 ![Nat-gateway2](https://user-images.githubusercontent.com/83189705/221288825-bf49d13b-25ca-4629-b03d-ed13d87d0694.png)
+# route-tables
 ![private-route-table](https://user-images.githubusercontent.com/83189705/221288837-19146a4c-2518-478d-9643-fd3839b7ffe7.png)
 
 ![route-tables](https://user-images.githubusercontent.com/83189705/221288845-650e09e3-6a04-4f09-ae77-0587f8d242ae.png)
 ![Screenshot from 2023-02-23 20-02-46](https://user-images.githubusercontent.com/83189705/221288871-3f4a13da-4061-42d0-94a0-cba7ebf54415.png)
-
+# eks
 ![eks](https://user-images.githubusercontent.com/83189705/221288903-9759cee4-b1ee-42f8-9cc1-f8a0ec834c79.png)
+# add ons
 ![Screenshot from 2023-02-25 00-24-02](https://user-images.githubusercontent.com/83189705/221320869-15057a1c-bcab-402f-9ec9-9c27df4ccd21.png)
 
 
@@ -128,13 +136,25 @@ But 1st we need to add some credentials for docker and git as follows
 
 # Now click on create a job  and choose pipline 
 ![jenkis](https://user-images.githubusercontent.com/83189705/221281316-26dc58d9-68c7-47dc-9f32-79b90a9b5072.png)
+
+![Screenshot from 2023-02-24 23-48-46](https://user-images.githubusercontent.com/83189705/221322021-9cbe5c89-93d0-45b3-9ff6-975606639907.png)
+
 # create your pipline using the following repo and Jenkinsfile
 ```bash
 https://github.com/HaidyH/ITI-final--project-app
+
 ```
-![Screenshot from 2023-02-24 21-52-44](https://user-images.githubusercontent.com/83189705/221282455-842b832f-0706-4273-a915-a5807b873509.png)
+Create this stage using any agent because we don’t need to run our Docker CLI commands in a specific image. Using withCredentials, we can specify to use our Docker Hub credentials defined within Jenkins to login to Docker Hub via the Docker CLI and push our newly built image up.
+
+![image](https://user-images.githubusercontent.com/83189705/221322086-8112c6d2-85da-42be-a4c2-ed568b1ffb6f.png)
+
+![Screenshot from 2023-02-24 23-54-05](https://user-images.githubusercontent.com/83189705/221322123-8b6f8d45-ff5e-49ee-a3d9-502b2b09e200.png)
+
 
 ![image](https://user-images.githubusercontent.com/83189705/221320679-65c47176-0469-4ded-9e0d-17b7935f1447.png)
+
+![image](https://user-images.githubusercontent.com/83189705/221322789-0a2238a2-ff98-43ef-bafd-c331190aac09.png)
+
 # Finally
 
 ![Screenshot from 2023-02-25 01-14-32](https://user-images.githubusercontent.com/83189705/221320706-321c458b-c63f-485a-8ab1-d5bb9256a9f9.png)
